@@ -1,0 +1,23 @@
+{
+  "name": "modulo-auth",
+  "version": "1.0.0",
+  "description": "Módulo de autenticación - React Native + NestJS + Neon",
+  "scripts": {
+
+    "dev:backend": "cd backend && npm run start",
+    "dev:mobile": "cd mobile && npx expo start",
+    "dev:web": "cd frontend && cd web && npm run start",
+    "dev:all": "concurrently \"npm run dev:backend\" \"npm run dev:mobile\"",
+
+    "setup:mobile": "cd frontend && cd mobile && npm install",
+    "setup:backend": "cd backend && npm i -g @nestjs/cli && npm install",
+    "setup:web": "cd frontend && cd web && npm install",
+    "setup:db": "cd backend && npm install @nestjs/typeorm typeorm pg",
+    "setup:all": "npm run setup:backend && npm run setup:mobile && npm run setup:web && npm run setup:db"
+
+
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
