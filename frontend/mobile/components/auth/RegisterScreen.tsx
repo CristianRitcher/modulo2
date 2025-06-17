@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ScrollView } from 'react-native';
+import { SafeAreaView, View, Text, Image, TextInput, TouchableOpacity, StyleSheet, Alert, ScrollView } from 'react-native';
 // @ts-ignore
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
@@ -27,87 +27,99 @@ const RegisterScreen = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.backButton}
-          // Aquí puedes modificar la acción de regreso.
-          // Por defecto, navigation.goBack() regresa a la pantalla anterior en la pila de navegación.
-          // Si quieres ir siempre a la pantalla de Login, usa: navigation.navigate('Login')
-          onPress={() => navigation.goBack()}
-        >
-          <Icon name="arrow-left" size={28} color="#222" />
-        </TouchableOpacity>
-        <Text style={styles.title}>Registrarse</Text>
-        <View style={styles.inputContainer}>
-          <Icon name="account" size={22} color="#aaa" style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Nombre completo"
-            value={name}
-            onChangeText={setName}
-          />
-        </View>
-        <View style={styles.inputContainer}>
-          <Icon name="email-outline" size={22} color="#aaa" style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Correo electrónico"
-            value={email}
-            onChangeText={setEmail}
-            autoCapitalize="none"
-            keyboardType="email-address"
-          />
-        </View>
-        <View style={styles.inputContainer}>
-          <Icon name="lock-outline" size={22} color="#aaa" style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Contraseña"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={!showPassword}
-          />
-          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-            <Icon name={showPassword ? "eye-off-outline" : "eye-outline"} size={22} color="#aaa" />
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={styles.container}>
+          <TouchableOpacity
+            style={styles.backButton}
+            // Aquí puedes modificar la acción de regreso.
+            // Por defecto, navigation.goBack() regresa a la pantalla anterior en la pila de navegación.
+            // Si quieres ir siempre a la pantalla de Login, usa: navigation.navigate('Login')
+            onPress={() => navigation.goBack()}
+          >
+            <Icon name="arrow-left" size={28} color="#222" />
           </TouchableOpacity>
-        </View>
-        <View style={styles.inputContainer}>
-          <Icon name="lock-outline" size={22} color="#aaa" style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Confirmar contraseña"
-            value={confirmPassword}
-            onChangeText={setConfirmPassword}
-            secureTextEntry={!showConfirmPassword}
-          />
-          <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
-            <Icon name={showConfirmPassword ? "eye-off-outline" : "eye-outline"} size={22} color="#aaa" />
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity style={styles.button} onPress={handleRegister}>
-          <Text style={styles.buttonText}>Ingresar</Text>
-          <View style={styles.circleIcon}>
-            <Icon name="arrow-right" size={22} color="#fff" />
+          <View style={{ marginTop: 40, paddingHorizontal: 1 }}>
+            <Text style={{ fontSize: 30, fontWeight: '500' }}>Registrarse</Text>
           </View>
-        </TouchableOpacity>
-        <Text style={styles.orText}>ó</Text>
-        <View style={styles.socialContainer}>
-          <TouchableOpacity style={styles.socialButton}>
-            <Icon name="google" size={22} color="#EA4335" />
-            <Text style={styles.socialText}>Ingresar con Google</Text>
+          <View style={styles.inputContainer}>
+            <Icon name="account" size={22} color="#aaa" style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Nombre completo"
+              value={name}
+              onChangeText={setName}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Icon name="email-outline" size={22} color="#aaa" style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Correo electrónico"
+              value={email}
+              onChangeText={setEmail}
+              autoCapitalize="none"
+              keyboardType="email-address"
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Icon name="lock-outline" size={22} color="#aaa" style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Contraseña"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry={!showPassword}
+            />
+            <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+              <Icon name={showPassword ? "eye-off-outline" : "eye-outline"} size={22} color="#aaa" />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.inputContainer}>
+            <Icon name="lock-outline" size={22} color="#aaa" style={styles.icon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Confirmar contraseña"
+              value={confirmPassword}
+              onChangeText={setConfirmPassword}
+              secureTextEntry={!showConfirmPassword}
+            />
+            <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
+              <Icon name={showConfirmPassword ? "eye-off-outline" : "eye-outline"} size={22} color="#aaa" />
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity style={styles.button} onPress={handleRegister}>
+            <Text style={styles.buttonText}>Ingresar</Text>
+            <View style={styles.circleIcon}>
+              <Icon name="arrow-right" size={22} color="#fff" />
+            </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.socialButton}>
-            <Icon name="facebook" size={22} color="#1877F3" />
-            <Text style={styles.socialText}>Ingresar con Facebook</Text>
-          </TouchableOpacity>
+          <Text style={styles.orText}>ó</Text>
+          <View style={styles.socialContainer}>
+            <TouchableOpacity style={styles.socialButton}>
+              <Image
+                source={{ uri: 'https://crystalpng.com/wp-content/uploads/2025/05/google-logo.png' }}
+                style={{ width: 22, height: 22, marginRight: 10 }}
+              />
+              <Text style={styles.socialText}>Ingresar con Google</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.socialButton}>
+              <Icon name="facebook" size={22} color="#1877F3" />
+              <Text style={styles.socialText}>Ingresar con Facebook</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.socialButton}>
+              <Icon name="apple" size={22} color="#000" />
+              <Text style={styles.socialText}>Ingresar con Apple</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+              <Text style={styles.footerText}>
+                ¿Ya tienes una cuenta? <Text style={styles.linkText}>Inicia sesión</Text>
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <Text style={styles.footerText}>
-          ¿Ya tienes una cuenta?{' '}
-          <Text style={styles.linkText}>Ingresar</Text>
-        </Text>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -116,7 +128,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
   },
   title: {
     fontSize: 28,
@@ -161,7 +173,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontSize: 18,
-    fontWeight: 'bold',
     textAlign: 'center',
   },
   circleIcon: {
@@ -189,12 +200,12 @@ const styles = StyleSheet.create({
   socialButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
-    borderRadius: 28, // Más redondeado
-    paddingVertical: 18, // Más alto
-    paddingHorizontal: 32, // Más ancho
-    marginBottom: 3,
-    width: 280, // Más ancho, igual que el botón principal
+    backgroundColor: '#D3D4E240', // Camb
+    borderRadius: 24, // Más redondeado
+    paddingVertical: 12, // Más alto
+    paddingHorizontal: 24, // Más ancho
+    marginBottom: 8,
+    width: 250, // Más ancho, igual que el botón principal
     alignSelf: 'center',
     justifyContent: 'center',
   },
@@ -202,7 +213,7 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     fontSize: 18, // Más grande
     color: '#222',
-    fontWeight: 'bold', // Opcional, para que se vea más fuerte
+    fontWeight: '400', // Opcional, para que se vea más fuerte
   },
   footerText: {
     textAlign: 'center',
