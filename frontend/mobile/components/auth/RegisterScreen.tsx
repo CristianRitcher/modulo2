@@ -30,7 +30,7 @@ const RegisterScreen = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.container}>
-          <TouchableOpacity
+           <TouchableOpacity
             style={styles.backButton}
             // Aquí puedes modificar la acción de regreso.
             // Por defecto, navigation.goBack() regresa a la pantalla anterior en la pila de navegación.
