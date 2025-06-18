@@ -29,21 +29,15 @@ const RegisterScreen = () => {
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.backButton}
-          // Aquí puedes modificar la acción de regreso.
-          // Por defecto, navigation.goBack() regresa a la pantalla anterior en la pila de navegación.
-          // Si quieres ir siempre a la pantalla de Login, usa: navigation.navigate('Login')
-          onPress={() => navigation.navigate('start')}
-        >
-          <Icon name="arrow-left" size={28} color="#222" />
-        </TouchableOpacity>
+      
+        
         <Text style={styles.title}>Registrarse</Text>
         <View style={styles.inputContainer}>
           <Icon name="account" size={22} color="#aaa" style={styles.icon} />
           <TextInput
             style={styles.input}
             placeholder="Nombre completo"
+            placeholderTextColor={'#747688'}
             value={name}
             onChangeText={setName}
           />
@@ -53,6 +47,7 @@ const RegisterScreen = () => {
           <TextInput
             style={styles.input}
             placeholder="Correo electrónico"
+            placeholderTextColor={'#747688'}
             value={email}
             onChangeText={setEmail}
             autoCapitalize="none"
@@ -64,6 +59,7 @@ const RegisterScreen = () => {
           <TextInput
             style={styles.input}
             placeholder="Contraseña"
+            placeholderTextColor={'#747688'}
             value={password}
             onChangeText={setPassword}
             secureTextEntry={!showPassword}
@@ -77,6 +73,7 @@ const RegisterScreen = () => {
           <TextInput
             style={styles.input}
             placeholder="Confirmar contraseña"
+            placeholderTextColor={'#747688'}
             value={confirmPassword}
             onChangeText={setConfirmPassword}
             secureTextEntry={!showConfirmPassword}
@@ -205,13 +202,6 @@ const styles = StyleSheet.create({
   linkText: {
     color: '#E6007A',
     fontWeight: 'bold',
-  },
-  backButton: {
-    position: 'absolute',
-    top: 24,
-    left: 0,
-    padding: 8,
-    zIndex: 10,
   },
 });
 
