@@ -3,21 +3,33 @@
   "version": "1.0.0",
   "description": "Módulo de autenticación - React Native + NestJS + Neon",
   "scripts": {
-
     "dev:backend": "cd backend && npm run start",
-    "dev:mobile": "cd mobile && npx expo start",
-    "dev:web": "cd frontend && cd web && npm run start",
+    "dev:mobile": "cd frontend/mobile && npx expo start --lan --clear",
+    "dev:mobile:tunnel": "cd frontend/mobile && npx expo start --tunnel --clear",
+    "dev:mobile:clean": "cd frontend/mobile && rm -rf .expo .expo-shared .cache && npx expo start --lan --clear",
+    "dev:web": "cd frontend/web && npm start",
     "dev:all": "concurrently \"npm run dev:backend\" \"npm run dev:mobile\"",
-
-    "setup:mobile": "cd frontend && cd mobile && npm install",
+    "setup:mobile": "cd frontend/mobile && npm install",
     "setup:backend": "cd backend && npm i -g @nestjs/cli && npm install",
-    "setup:web": "cd frontend && cd web && npm install",
+    "setup:web": "cd frontend/web && npm install",
     "setup:db": "cd backend && npm install @nestjs/typeorm typeorm pg",
     "setup:all": "npm run setup:backend && npm run setup:mobile && npm run setup:web && npm run setup:db"
-
-
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "^24.0.3",
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.4.19",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^10.4.19",
+    "@nestjs/typeorm": "^11.0.0",
+    "@types/pg": "^8.15.4",
+    "axios": "^1.10.0",
+    "bcrypt": "^6.0.0",
+    "formik": "^2.4.6",
+    "pg": "^8.16.1",
+    "yup": "^1.6.1"
   }
 }
